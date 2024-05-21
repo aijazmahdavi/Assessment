@@ -57,3 +57,7 @@ class TaskAdmin(admin.ModelAdmin):
     list_display = ['title', 'description', 'status', 'due_date', 'project']
     list_filter = ['title', 'description', 'status', 'due_date', 'project']
     search_fields = ['title', 'description', 'status', 'due_date', 'project']
+
+
+
+

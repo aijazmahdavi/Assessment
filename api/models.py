@@ -7,12 +7,32 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User
 
 
-def getuserID(user):
-    return user.id
-class Project(models.Model):
+
+class BaseModel(models.Model):
+    deleted = models.BooleanField(default=False)
+
+    class Meta:
+        abstract = True
+
+    def delete(self):
+        self.deleted = True
+        self.save()
+
+
+
+class BaseModelManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(deleted=False)
+
+
+
+
+class Project(BaseModel):
     name = models.CharField(max_length=200)
     description = models.TextField()
     users = models.ManyToManyField(User, related_name='projects')
+
+    objects = BaseModelManager()
 
     def __str__(self):
         return self.name
@@ -33,7 +53,7 @@ def users_changed(sender, instance, action, **kwargs):
         for user in instance.users.all():
             assign_task_permissions(user)
 
-class Task(models.Model):
+class Task(BaseModel):
 
     STATUS_CHOICES = [
         ('todo', 'To Do'),
@@ -47,5 +67,9 @@ class Task(models.Model):
     due_date = models.DateField()
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='tasks', null=True)
 
+    objects = BaseModelManager()
+
     def __str__(self):
         return self.title
+
+
