@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a8411b2-d1ea-403e-898f-95db28318c14" name="Changes" comment="Fliter tasks for logged in user">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="7a8411b2-d1ea-403e-898f-95db28318c14" name="Changes" comment="Apply soft delete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assessment/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +38,11 @@
         </map>
       </branch-storage>
     </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -129,7 +131,7 @@
       <updated>1716304677158</updated>
       <workItem from="1716304678517" duration="6070000" />
       <workItem from="1716310914872" duration="6350000" />
-      <workItem from="1716319313275" duration="2571000" />
+      <workItem from="1716319313275" duration="3649000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit, user auth Implement JWT">
       <option name="closed" value="true" />
@@ -163,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716319263107</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Apply soft delete">
+      <option name="closed" value="true" />
+      <created>1716321945641</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716321945641</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +184,7 @@
     <MESSAGE value="Add models for project and tasks" />
     <MESSAGE value="Add Crud permission for selected user in project" />
     <MESSAGE value="Fliter tasks for logged in user" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fliter tasks for logged in user" />
+    <MESSAGE value="Apply soft delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Apply soft delete" />
   </component>
 </project>
