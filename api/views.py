@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.shortcuts import render
 
 # for project and tasks
 from rest_framework import viewsets
@@ -11,7 +12,8 @@ from .serializers import ProjectSerializer, TaskSerializer
 from rest_framework.exceptions import PermissionDenied
 from rest_framework import permissions
 
-
+# Task form
+from .forms import TaskForm
 
 # Login auth JWT
 class LoginView(APIView):
@@ -90,3 +92,16 @@ class TaskViewSet(viewsets.ModelViewSet):
             instance.delete()
         else:
             raise PermissionDenied("You don't have permission to delete tasks for this project.")
+
+
+
+
+
+def create_task(request):
+    form = TaskForm(user=request.user)  # Pass the user information to the form
+    if request.method == 'POST':
+        form = TaskForm(request.POST, user=request.user)  # Pass the user information again when processing the form
+        if form.is_valid():
+            form.save()
+            # Redirect or do something else
+    return render(request, 'create_task.html', {'form': form})

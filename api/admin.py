@@ -38,6 +38,22 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if 'project' in form.base_fields:
+            form.base_fields['project'].queryset = request.user.projects.all()
+        return form
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(project__users=request.user)
+
+    def save_model(self, request, obj, form, change):
+        if not obj.pk:
+            obj.created_by = request.user
+        super().save_model(request, obj, form, change)
     list_display = ['title', 'description', 'status', 'due_date', 'project']
     list_filter = ['title', 'description', 'status', 'due_date', 'project']
     search_fields = ['title', 'description', 'status', 'due_date', 'project']
