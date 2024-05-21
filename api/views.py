@@ -9,7 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 from .models import Project, Task
 from .serializers import ProjectSerializer, TaskSerializer
 from rest_framework.exceptions import PermissionDenied
-
+from rest_framework import permissions
 
 
 
@@ -33,6 +33,24 @@ class LoginView(APIView):
             return Response({'error': 'Invalid credentials'}, status=401)
 
 
+# check if user has permission to create task in project
+class IsProjectUser(permissions.BasePermission):
+    def has_permission(self, request, view):
+        if view.action in ['create', 'list']:
+            project_id = request.data.get('project') if view.action == 'create' else view.kwargs.get('project_id')
+            if project_id:
+                project = Project.objects.get(id=project_id)
+                return request.user in project.users.all()
+            return False
+        return True
+
+    def has_object_permission(self, request, view, obj):
+        if isinstance(obj, Task):
+            project = obj.project
+        elif isinstance(obj, Project):
+            project = obj
+        return request.user in project.users.all()
+
 # Projects and tasks
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
@@ -46,11 +64,29 @@ class ProjectViewSet(viewsets.ModelViewSet):
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsProjectUser]
+
+    def get_queryset(self):
+        user = self.request.user
+        return Task.objects.filter(project__users=user)
 
     def perform_create(self, serializer):
         project = Project.objects.get(id=self.request.data['project'])
         if self.request.user in project.users.all():
-            serializer.save()
+            serializer.save(user=self.request.user)
         else:
             raise PermissionDenied("You don't have permission to create tasks for this project.")
+
+    def perform_update(self, serializer):
+        project = serializer.instance.project
+        if self.request.user in project.users.all():
+            serializer.save()
+        else:
+            raise PermissionDenied("You don't have permission to update tasks for this project.")
+
+    def perform_destroy(self, instance):
+        project = instance.project
+        if self.request.user in project.users.all():
+            instance.delete()
+        else:
+            raise PermissionDenied("You don't have permission to delete tasks for this project.")
