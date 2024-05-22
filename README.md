@@ -23,22 +23,10 @@ CRUD for selected user in premission will auto managed and tested it
 
 
 > if go to admin panel project via admin user then the person we assigned that project to can add task and CRUD these tasks
-![image](https://github.com/aijazmahdavi/Assessment/assets/135382053/1207e794-de1e-4dc8-9ce7-a4757b558cda)
+![image](https://github.com/aijazmahdavi/assessment/assets/135382053/4f7a5ad8-3b53-4400-ab35-745d78480837)
 
 
-Now we goona add two projects
-![image](https://github.com/aijazmahdavi/Assessment/assets/135382053/69c22070-75b8-4dd9-b750-184b63bf5fe8)
-
-1st project is for demousser
-and 2nd is for demouser2
-
-if I login via demouser
-![image](https://github.com/aijazmahdavi/Assessment/assets/135382053/3774c3f1-70fe-470c-93b2-f0c9f9767a0d)
-I can see tasks
-![image](https://github.com/aijazmahdavi/Assessment/assets/135382053/530cb69d-30c5-4815-b3d5-3d0f1a934c7b)
-and that user can CRUD thier tasks likewise for other users.
-
-
+I added two users and assigned project to them they can manage crud thier tasks 
 
 4. softdelete
    I applied softdelet funcitonality but I didnt create custom template for I added is deleted which can be used in template if user deletes entry.
