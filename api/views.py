@@ -1,3 +1,5 @@
+from venv import logger
+from rest_framework.permissions import AllowAny
 from django.contrib.auth import authenticate
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -11,12 +13,16 @@ from .models import Project, Task
 from .serializers import ProjectSerializer, TaskSerializer
 from rest_framework.exceptions import PermissionDenied
 from rest_framework import permissions
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 # Task form
 from .forms import TaskForm
 
 # Login auth JWT
 class LoginView(APIView):
+    permission_classes = [AllowAny]
+    @method_decorator(csrf_exempt)
     def post(self, request):
         username = request.data.get('username')
         password = request.data.get('password')
@@ -32,8 +38,8 @@ class LoginView(APIView):
                 'refresh_token': refresh_token
             })
         else:
+            logger.warning(f"Invalid login attempt for user: {username}")
             return Response({'error': 'Invalid credentials'}, status=401)
-
 
 # check if user has permission to create task in project
 class IsProjectUser(permissions.BasePermission):
@@ -92,16 +98,3 @@ class TaskViewSet(viewsets.ModelViewSet):
             instance.delete()
         else:
             raise PermissionDenied("You don't have permission to delete tasks for this project.")
-
-
-
-
-
-def create_task(request):
-    form = TaskForm(user=request.user)  # Pass the user information to the form
-    if request.method == 'POST':
-        form = TaskForm(request.POST, user=request.user)  # Pass the user information again when processing the form
-        if form.is_valid():
-            form.save()
-            # Redirect or do something else
-    return render(request, 'create_task.html', {'form': form})

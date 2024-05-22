@@ -1,41 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b0a6bff-e469-4523-9840-9feac651975e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assessment.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assessment.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b33ddb70-9fbc-4cd1-b41a-fbc67c08549b.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b33ddb70-9fbc-4cd1-b41a-fbc67c08549b/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="4b0a6bff-e469-4523-9840-9feac651975e" name="Changes" comment="Final Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0002_task_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/migrations/0002_task_user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0003_remove_task_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/migrations/0003_remove_task_user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0004_alter_task_project.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/migrations/0004_alter_task_project.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0005_project_deleted_at_project_restored_at_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/migrations/0005_project_deleted_at_project_restored_at_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0006_remove_project_deleted_at_remove_project_restored_at_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/migrations/0006_remove_project_deleted_at_remove_project_restored_at_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0007_remove_project_is_deleted_remove_task_is_deleted_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/migrations/0007_remove_project_is_deleted_remove_task_is_deleted_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0008_post.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/migrations/0008_post.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/migrations/0009_delete_post_remove_project_deleted_at_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/migrations/0009_delete_post_remove_project_deleted_at_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/asgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assessment/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +22,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "aijazmahdavi"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/aijazmahdavi/Assessment",
+    "accountId": "abc2a518-cfe1-4b07-8a23-16f70033c2fd"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 6
 }]]></component>
@@ -60,8 +46,13 @@
   "keyToString": {
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/usr/bin/python3.10",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
@@ -110,11 +101,35 @@
       <option name="presentableId" value="Default" />
       <updated>1707826157617</updated>
       <workItem from="1707826158772" duration="8000" />
-      <workItem from="1716355466845" duration="110000" />
+      <workItem from="1716355466845" duration="4208000" />
     </task>
+    <task id="LOCAL-00001" summary="Final Commit">
+      <option name="closed" value="true" />
+      <created>1716355921411</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716355921411</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Final Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Commit" />
   </component>
 </project>
