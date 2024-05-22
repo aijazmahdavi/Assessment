@@ -2,7 +2,14 @@
 Assessment task for Saif Inspirations
 
 1. I Implement JWT and tested it via Post man
- ![image](https://github.com/aijazmahdavi/Assessment/assets/135382053/6b148fee-d03a-4ea5-ad6f-21355dc488c5)
+   url is domain/api/token/
+   {
+    "username": "admin",
+    "password": "admin"
+}
+ 
+   ![image](https://github.com/aijazmahdavi/assessment/assets/135382053/ab54d2fa-35d5-4726-a7ca-20587adf11a6)
+
 
 2 and 3. Create Project and Task models and manage CRUD for users.
 For testing this I made models and user I didnt make custom template for login or sign up as its not part of assements
