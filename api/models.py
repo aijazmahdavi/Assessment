@@ -1,12 +1,7 @@
-
-from django.db import models
-from django.contrib.auth.models import User, Permission
+from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
-from django.db.models.signals import m2m_changed
-from django.dispatch import receiver
+from django.db import models
 from django.contrib.auth.models import User
-
-
 
 class BaseModel(models.Model):
     deleted = models.BooleanField(default=False)
@@ -18,19 +13,24 @@ class BaseModel(models.Model):
         self.deleted = True
         self.save()
 
-
-
 class BaseModelManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(deleted=False)
 
+class ProjectPermission(BaseModel):
+    project = models.ForeignKey('Project', on_delete=models.CASCADE, related_name='permissions')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    can_create = models.BooleanField(default=False)
+    can_read = models.BooleanField(default=False)
+    can_update = models.BooleanField(default=False)
+    can_delete = models.BooleanField(default=False)
 
-
+    def __str__(self):
+        return f"{self.user.username} - {self.project.name}"
 
 class Project(BaseModel):
     name = models.CharField(max_length=200)
     description = models.TextField()
-    users = models.ManyToManyField(User, related_name='projects')
 
     objects = BaseModelManager()
 
@@ -39,22 +39,27 @@ class Project(BaseModel):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        for user in self.users.all():
-            assign_task_permissions(user)
+        for permission in self.permissions.all():
+            self.assign_permissions(permission.user, permission)
 
-def assign_task_permissions(user):
-    content_type = ContentType.objects.get_for_model(Task)
-    permissions = Permission.objects.filter(content_type=content_type)
-    user.user_permissions.add(*permissions)
+    def assign_permissions(self, user, permission):
+        content_type = ContentType.objects.get_for_model(Task)
+        task_permissions = Permission.objects.filter(content_type=content_type)
 
-@receiver(m2m_changed, sender=Project.users.through)
-def users_changed(sender, instance, action, **kwargs):
-    if action in ["post_add", "post_remove", "post_clear"]:
-        for user in instance.users.all():
-            assign_task_permissions(user)
+        if permission.can_create:
+            user.user_permissions.add(*task_permissions.filter(codename__endswith='add_task'))
+
+        if permission.can_read:
+            user.user_permissions.add(*task_permissions.filter(codename__endswith='view_task'))
+
+        if permission.can_update:
+            user.user_permissions.add(*task_permissions.filter(codename__endswith='change_task'))
+
+        if permission.can_delete:
+            user.user_permissions.add(*task_permissions.filter(codename__endswith='delete_task'))
+
 
 class Task(BaseModel):
-
     STATUS_CHOICES = [
         ('todo', 'To Do'),
         ('in_progress', 'In Progress'),
@@ -71,5 +76,3 @@ class Task(BaseModel):
 
     def __str__(self):
         return self.title
-
-
